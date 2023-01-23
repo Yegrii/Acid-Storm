@@ -1,12 +1,15 @@
-# models.py
+from settings import PLAYER_HEALTH, ENEMY_HEALTH
 class Player:
-    def __init__(self, name="Player", health=5, score=0):
+    # Ініціалізація гравця
+    def __init__(self, name="Player", health=PLAYER_HEALTH, score=0):
         self.name = name
         self.health = health
         self.score = score
 
 class Enemy:
-    def __init__(self, level=1, health=5, score=0):
+    # Ініціалізація ворога
+    def __init__(self, level=1, health=ENEMY_HEALTH, score=0):
         self.level = level
         self.health = health
         self.score = score
+
