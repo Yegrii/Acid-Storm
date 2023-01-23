@@ -5,6 +5,7 @@ from exceptions import EnemyDown, GameOver
 # Version WRW_game 1.0.0
 def attack_stage(player, enemy):
     # Функція нападу гравця на ворога
+
     attack_choice = input("Select your attack choice (warrior, robber, wizard): ")
     enemy_defence_choice = random.choice(["warrior", "robber", "wizard"])
     if attack_choice == "warrior" and enemy_defence_choice == "robber":
@@ -27,6 +28,7 @@ def attack_stage(player, enemy):
 
 def defence_stage(player, enemy):
     # Функція захисту гравця від нападу ворога
+
     defence_choice = input("Select your defence choice (warrior, robber, wizard): ")
     enemy_attack_choice = random.choice(["warrior", "robber", "wizard"])
     if defence_choice == "warrior" and enemy_attack_choice == "robber":
@@ -46,6 +48,7 @@ def defence_stage(player, enemy):
 
 def play_game():
     # Функція гри
+
     player = Player()
     enemy = Enemy()
     while True:
