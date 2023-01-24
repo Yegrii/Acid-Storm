@@ -2,7 +2,7 @@ import random
 from models import Player, Enemy
 from exceptions import EnemyDown, GameOver
 
-# Version WRW_game 1.0.0
+# Version WRW_game 1.0
 def attack_stage(player, enemy):
     # Функція нападу гравця на ворога
 

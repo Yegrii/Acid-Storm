@@ -1,4 +1,5 @@
 from settings import PLAYER_HEALTH, ENEMY_HEALTH
+# Version WRW_game 1.0
 class Player:
     # Ініціалізація гравця
     def __init__(self, name="Player", health=PLAYER_HEALTH, score=0):
