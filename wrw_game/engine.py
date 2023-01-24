@@ -1,8 +1,10 @@
 import random
 from models import Player, Enemy
 from exceptions import EnemyDown, GameOver
+from settings import NUM_ROUNDS
 
-# Version WRW_game 1.0
+
+# Version WRW_game 1.1
 def attack_stage(player, enemy):
     # Функція нападу гравця на ворога
 
@@ -25,6 +27,9 @@ def attack_stage(player, enemy):
             raise EnemyDown(enemy)
     else:
         print("Attack failed.")
+    # Додано вивід здоров'я гравця та ворога
+    print(f"Player health: {player.health}, Enemy health: {enemy.health}")
+
 
 def defence_stage(player, enemy):
     # Функція захисту гравця від нападу ворога
@@ -45,25 +50,28 @@ def defence_stage(player, enemy):
             raise GameOver(player)
     else:
         print("Enemy's attack failed.")
+    # Додано вивід здоров‘я гравця та ворога
+    print(f"Player health: {player.health}, Enemy health: {enemy.health}")
+
 
 def play_game():
     # Функція гри
+    # Додано змінну NUM_ROUNDS, щоб обмежити кількість раундів
 
     player = Player()
     enemy = Enemy()
-    while True:
+    for i in range(NUM_ROUNDS):
         try:
             attack_stage(player, enemy)
             defence_stage(player, enemy)
         except EnemyDown as e:
-            print(f"Enemy defeated! Level {e.enemy.level}")
-            player.score += 2
-            enemy = Enemy(e.enemy.level + 1)
-        except GameOver as e:
-            print(f"Game over! Score: {e.player.score}")
-            with open("scores.txt", "a") as f:
-                f.write(f"{player.name} {e.player.score}\n")
+            enemy = Enemy()
+            print(f"Enemy {e.enemy.name} is down.")
             break
+        except GameOver as e:
+            print(f"Game over. Player {e.player.name} is down.")
+            break
+    print(f"{player.name} has hit {enemy.name} {player.score} times and win the WRW game!!!")
 
 
 # Ініціалізація гри
