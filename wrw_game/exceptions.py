@@ -1,6 +1,6 @@
 # Version WRW_game 1.0
 class EnemyDown(Exception):
-    #  Ініціалізуємо клас EnemyDown
+    # Ініціалізуємо клас EnemyDown
     def __init__(self, enemy):
         self.enemy = enemy
 
