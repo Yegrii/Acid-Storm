@@ -1,9 +1,15 @@
 from exceptions import EnemyDown, GameOver
 from models import Player, Enemy
 from settings import ENEMY_HEALTH
-
+import os
 
 # Version WRW_game 3.0
+
+# Отримання абсолютного шляху до файлу score.txt (у PyCharm вcе працювало без проблем,
+# але в VS Code не відкривався файл score.txt, тому я додав абсолютний шлях)
+score_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'score.txt')
+
+
 # Функція для імені гравця
 def get_player_name():
     return input("Enter player's name: ")
@@ -16,13 +22,13 @@ def get_enemy_name():
 
 # Функція для запису результатів гри
 def write_score_to_file(player_name, enemy_name, player_score, enemy_level):
-    with open('score.txt', 'a') as file:
+    with open(score_file_path, 'a') as file:
         file.write(f'Player: {player_name} score: {player_score} Enemy: {enemy_name} level: {enemy_level}\n')
 
 
 # Функція, щоб отримати топ 10 гравців
 def get_top_players():
-    with open('score.txt', 'r') as f:
+    with open(score_file_path, 'r') as f:
         lines = f.readlines()
         players = [(line.split()[1], int(line.split()[3])) for line in lines]
         players.sort(key=lambda x: x[1], reverse=True)
@@ -31,7 +37,7 @@ def get_top_players():
 
 # Функція, щоб отримати топ 3 ворогів
 def get_top_enemies():
-    with open('score.txt', 'r') as f:
+    with open(score_file_path, 'r') as f:
         lines = f.readlines()
         enemies = [(line.split()[5], int(line.split()[7])) for line in lines]
         enemies.sort(key=lambda x: x[1], reverse=True)
