@@ -14,6 +14,30 @@ def get_enemy_name():
     return input("Enter enemy's name: ")
 
 
+# Функція для запису результатів гри
+def write_score_to_file(player_name, enemy_name, player_score, enemy_level):
+    with open('score.txt', 'a') as file:
+        file.write(f'Player: {player_name} score: {player_score} Enemy: {enemy_name} level: {enemy_level}\n')
+
+
+# Функція, щоб отримати топ 10 гравців
+def get_top_players():
+    with open('score.txt', 'r') as f:
+        lines = f.readlines()
+        players = [(line.split()[1], int(line.split()[3])) for line in lines]
+        players.sort(key=lambda x: x[1], reverse=True)
+        return players[:10]
+
+
+# Функція, щоб отримати топ 3 ворогів
+def get_top_enemies():
+    with open('score.txt', 'r') as f:
+        lines = f.readlines()
+        enemies = [(line.split()[5], int(line.split()[7])) for line in lines]
+        enemies.sort(key=lambda x: x[1], reverse=True)
+        return enemies[:3]
+
+
 # Функція гри
 def play_game():
     player_name = get_player_name()
@@ -44,7 +68,25 @@ def play_game():
             print(
                 f"\nSad but true... {player.name} is dead...\n{enemy.name} laughs at you and said: You just another "
                 f"mortal in my game!")
-            
+
+            # Виводимо результати гри
+            print(f"\n{player.name} score: {player.score}; {enemy.name} level: {enemy.lvl}")
+
+            # Викликаємо функцію для запису результатів гри
+            write_score_to_file(player.name, enemy.name, player.score, enemy.lvl)
+
+            # Викликаємо функції для виводу топ 10 гравців та топ 3 ворогів
+            top_players = get_top_players()
+            top_enemies = get_top_enemies()
+
+            print("\n--- Top 10 players ---")
+            for i, (name, score) in enumerate(top_players):
+                print(f"{i + 1}. {name}: {score}")
+
+            print("\n--- Top 3 enemies ---")
+            for i, (name, level) in enumerate(top_enemies):
+                print(f"{i + 1}. {name}: {level}")
+
             break
 
 
