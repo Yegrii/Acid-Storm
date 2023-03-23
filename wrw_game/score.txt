@@ -23,3 +23,6 @@ Player: Ivan score: 6 Enemy: fedor level: 1
 Player: Koko score: 2 Enemy: Poko level: 1
 Player: Лкшл score: 7 Enemy: Пшик level: 1
 Player: Yegrii score: 9 Enemy: Sergii level: 2
+Player: Gordon score: 4 Enemy: Dmitro level: 1
+Player: Again score: 37 Enemy: Same level: 6
+Player: Scrum score: 3 Enemy: Param level: 1
