@@ -55,11 +55,10 @@ class Player:
         #     print("\nDraw!\n")
         # else:
         #     print(f"\n{self.name}'s attack failed.\n")
-        # print(
-        #     f"{self.name} health: {self.health}, {self.name} score: {self.score}. \n{enemy.name} health: {enemy.health}, {enemy.name} level: {enemy.lvl}\n")
+        #     print( f"{self.name} health: {self.health}, {self.name} score: {self.score}. \n{enemy.name} health: {enemy.health},{enemy.name} level: {enemy.lvl}\n")
 
     def defend(self, enemy):
-        # Функція для автоматичного вибору захисту гравця і атаки ворога(тестова)
+        # Функція для автоматичного вибору захисту гравця й атаки ворога(тестова)
         defence_choice = random.choice(["warrior", "robber", "wizard"])
         enemy_attack_choice = random.choice(["warrior", "robber", "wizard"])
 
@@ -140,20 +139,18 @@ class Enemy:
         # player_defence_choice = input(f"{player.name}, select your 'DEFENCE' choice (warrior, robber, wizard): ")
         #
         # if attack_choice == "warrior" and player_defence_choice == "robber":
-        #     player.reduce_health()
-        #     print(f'\n{self.name} hit you!\n')
+        #     player.reduce_health() print(f'\n{self.name} hit you!\n')
         # elif attack_choice == "robber" and player_defence_choice == "wizard":
-        #     player.reduce_health()
-        #     print(f'\n{self.name} hit you!\n')
+        #     player.reduce_health() print(f'\n{self.name} hit you!\n')
         # elif attack_choice == "wizard" and player_defence_choice == "warrior":
-        #     player.reduce_health()
-        #     print(f'\n{self.name} hit you!\n')
+        #     player.reduce_health() print(f'\n{self.name} hit you!\n')
         # elif attack_choice == player_defence_choice:
         #     print("\nDraw!\n")
         # else:
         #     print(f"\n{self.name}'s attack failed.\n")
         # print(
-        #     f"{player.name}'s health: {player.health}, {player.name} score: {player.score}. \n{self.name}'s health: {self.health}, {self.name} level: {self.lvl}\n")
+        #     f"{player.name}'s health: {player.health}, {player.name} score: {player.score}. \n{self.name}'s
+        # health: {self.health}, {self.name} level: {self.lvl}\n")
 
     def reduce_health(self):
         self.health -= 1
